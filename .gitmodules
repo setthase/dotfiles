@@ -25,3 +25,12 @@
 [submodule ".nvim/bundle/YouCompleteMe"]
 	path = .nvim/bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule ".nvim/bundle/vim-surround"]
+	path = .nvim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule ".nvim/bundle/vim-repeat"]
+	path = .nvim/bundle/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule ".nvim/bundle/vim-multiple-cursors"]
+	path = .nvim/bundle/vim-multiple-cursors
+	url = git@github.com:terryma/vim-multiple-cursors.git
