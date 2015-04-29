@@ -34,3 +34,6 @@
 [submodule ".nvim/bundle/vim-multiple-cursors"]
 	path = .nvim/bundle/vim-multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors.git
+[submodule ".nvim/bundle/yajs.vim"]
+	path = .nvim/bundle/yajs.vim
+	url = https://github.com/othree/yajs.vim.git
