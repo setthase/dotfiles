@@ -16,6 +16,7 @@ set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
+set ttimeoutlen=50
 
 " Optimize for fast terminal connections
 set ttyfast
@@ -123,8 +124,8 @@ function! StripWhitespace()
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
+" Clear last search highlight by pressing ⏎ key
+nnoremap <CR> :noh<CR><CR>
 
 " Automatic commands
 if has("autocmd")
@@ -136,7 +137,6 @@ if has("autocmd")
 
   " Treat .md files as Markdown
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-
 endif
 
 " Use spaces instead of tab
@@ -160,6 +160,10 @@ let g:airline#extensions#tabline#enabled = 1
 " gitgutter setup
 let g:gitgutter_realtime = 0
 let g:gitgutter_sign_column_always = 1
+
+" ctrlp setup
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
 
 " vim-move setup
 let g:move_key_modifier = 'C'
