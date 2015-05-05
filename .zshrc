@@ -48,18 +48,20 @@ ZSH_THEME="nicoulaj"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew colored-man colorize gitfast wd)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(brew colored-man gitfast osx per-directory-history wd)
 
+# Load oh-my-zsh settings
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export MANPATH="/usr/local/man:$MANPATH"
+
 export EDITOR='nvim'
 
+# Hide brew icon after install script
 export HOMEBREW_NO_EMOJI=1
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -77,8 +79,18 @@ export HOMEBREW_NO_EMOJI=1
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Add alias settings
-alias ll='ls -la'
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+# Upgrade ll to show all files
+alias ll='ls -lah'
 
 # Change vim to nvim
 alias vi='nvim'
