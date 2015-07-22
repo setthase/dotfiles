@@ -142,9 +142,6 @@ if has("autocmd")
   " Enable file type detection.
   filetype on
 
-  " Auto reload `.nvimrc` on save.
-  autocmd! bufwritepost $MYVIMRC source %
-
   " Treat .json files as .js.
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
@@ -159,10 +156,10 @@ set shiftwidth=2
 set softtabstop=2
 
 " Use the custom theme.
+"let g:gruvbox_sign_column = 'dark0'
+
 set background=dark
 colorscheme gruvbox
-
-let g:gruvbox_sign_column = 'dark0'
 
 """ Plug-ins configuration
 
