@@ -40,3 +40,9 @@
 [submodule ".nvim/bundle/ag"]
 	path = .nvim/bundle/ag
 	url = git@github.com:rking/ag.vim.git
+[submodule ".nvim/bundle/syntastic"]
+	path = .nvim/bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule ".nvim/bundle/html5.vim"]
+	path = .nvim/bundle/html5.vim
+	url = git@github.com:othree/html5.vim.git
