@@ -46,3 +46,6 @@
 [submodule ".nvim/bundle/html5.vim"]
 	path = .nvim/bundle/html5.vim
 	url = git@github.com:othree/html5.vim.git
+[submodule ".nvim/bundle/vim-mustache-handlebars"]
+	path = .nvim/bundle/vim-mustache-handlebars
+	url = git@github.com:mustache/vim-mustache-handlebars.git
