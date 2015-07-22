@@ -1,6 +1,30 @@
 " Enable Pathogen.
 execute pathogen#infect()
 
+""" Plug-ins related configuration
+
+" gruvbox
+"let g:gruvbox_sign_column = 'dark0'
+let g:gruvbox_guisp_fallback = 'fg'
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" vim-gitgutter
+let g:gitgutter_realtime = 1
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_override_sign_column_highlight = 0
+
+" ctrlp.vim
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
+
+" vim-move
+let g:move_key_modifier = 'C'
+
+""" Standard configuration
+
 " Make Vim more useful.
 set nocompatible
 
@@ -73,7 +97,7 @@ endif
 syntax on
 
 " Highlight current line.
-set cursorline
+"set cursorline
 
 " Show matching brackets.
 set showmatch
@@ -156,24 +180,6 @@ set shiftwidth=2
 set softtabstop=2
 
 " Use the custom theme.
-"let g:gruvbox_sign_column = 'dark0'
-
 set background=dark
 colorscheme gruvbox
 
-""" Plug-ins configuration
-
-" vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-" vim-gitgutter
-let g:gitgutter_realtime = 0
-let g:gitgutter_sign_column_always = 1
-
-" ctrlp.vim
-let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
-
-" vim-move
-let g:move_key_modifier = 'C'
