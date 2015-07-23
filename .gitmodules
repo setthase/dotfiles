@@ -49,3 +49,6 @@
 [submodule ".nvim/bundle/vim-mustache-handlebars"]
 	path = .nvim/bundle/vim-mustache-handlebars
 	url = git@github.com:mustache/vim-mustache-handlebars.git
+[submodule ".nvim/bundle/vim-devicons"]
+	path = .nvim/bundle/vim-devicons
+	url = git@github.com:ryanoasis/vim-devicons.git
