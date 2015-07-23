@@ -49,3 +49,6 @@
 [submodule ".nvim/bundle/vim-devicons"]
 	path = .nvim/bundle/vim-devicons
 	url = git@github.com:ryanoasis/vim-devicons.git
+[submodule ".nvim/bundle/ctrlp.vim"]
+	path = .nvim/bundle/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
