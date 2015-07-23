@@ -4,9 +4,6 @@
 [submodule ".nvim/bundle/gruvbox"]
 	path = .nvim/bundle/gruvbox
 	url = git@github.com:morhetz/gruvbox.git
-[submodule ".nvim/bundle/ctrlp.vim"]
-	path = .nvim/bundle/ctrlp.vim
-	url = git@github.com:kien/ctrlp.vim.git
 [submodule ".nvim/bundle/vim-fugitive"]
 	path = .nvim/bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
