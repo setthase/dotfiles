@@ -10,6 +10,7 @@ let g:gruvbox_guisp_fallback = 'fg'
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
 
 " vim-gitgutter
 let g:gitgutter_realtime = 1
@@ -23,10 +24,20 @@ let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
 " vim-move
 let g:move_key_modifier = 'C'
 
+" NERDTree
+let NERDChristmasTree=1                         " Colourful and pretty NERDTree
+let NERDTreeShowHidden=1                        " Show hidden files by default
+let NERDTreeWinPos="right"                      " Right position
+
+map <C-t> :NERDTreeToggle<CR>                   " Use F6 key to toggle NerdTree
+
 """ Standard configuration
 
 " Make Vim more useful.
 set nocompatible
+
+" Use UTF-8 without BOM.
+set encoding=utf-8 nobomb
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`).
 set clipboard=unnamed
@@ -51,9 +62,6 @@ set lazyredraw
 
 " Add the g flag to search/replace by default.
 set gdefault
-
-" Use UTF-8 without BOM.
-set encoding=utf-8 nobomb
 
 " Change commands map leader.
 let mapleader=","
@@ -118,6 +126,9 @@ set incsearch
 " Always show status line.
 set laststatus=2
 
+" Hide the current mode.
+set noshowmode
+
 " Enable mouse in all modes.
 set mouse=a
 
@@ -132,9 +143,6 @@ set ruler
 
 " Don’t show the intro message when starting Vim.
 set shortmess=atI
-
-" Show the current mode.
-set showmode
 
 " Show the filename in the window title bar.
 set title
@@ -171,6 +179,9 @@ if has("autocmd")
 
   " Treat .md files as Markdown.
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+
+  " Close NERDTree automatically if it's the last window
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 
 " Use spaces instead of tab.
@@ -182,4 +193,3 @@ set softtabstop=2
 " Use the custom theme.
 set background=dark
 colorscheme gruvbox
-
