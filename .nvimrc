@@ -1,10 +1,32 @@
-" Enable Pathogen.
-execute pathogen#infect()
+" Define Vim plugins list
+
+call plug#begin('~/.nvim/bundle')
+
+Plug 'bling/vim-airline'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'matze/vim-move'
+Plug 'tpope/vim-abolish'
+Plug 'godlygeek/tabular'
+Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'com/othree/yajs.vim'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/syntastic'
+Plug 'othree/html5.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+
+call plug#end()
 
 """ Plug-ins related configuration
 
 " gruvbox
-"let g:gruvbox_sign_column = 'dark0'
 let g:gruvbox_guisp_fallback = 'fg'
 
 " vim-airline
