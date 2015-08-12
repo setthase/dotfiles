@@ -2,25 +2,28 @@
 
 call plug#begin('~/.nvim/bundle')
 
-Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
+Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'matze/vim-move'
-Plug 'tpope/vim-abolish'
-Plug 'godlygeek/tabular'
-Plug 'Valloric/YouCompleteMe'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'com/othree/yajs.vim'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/syntastic'
-Plug 'othree/html5.vim'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
+
+Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+
+Plug 'matze/vim-move'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'othree/yajs.vim'
+Plug 'othree/html5.vim'
+Plug 'scrooloose/syntastic'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
 
