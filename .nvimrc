@@ -1,6 +1,6 @@
 " Define Vim plugins list
 
-call plug#begin('~/.nvim/bundle')
+call plug#begin('~/.config/nvim/bundle')
 
 Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
@@ -19,11 +19,10 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'othree/yajs.vim'
-Plug 'othree/html5.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/syntastic'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-Plug 'mustache/vim-mustache-handlebars'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --omnisharp-completer' }
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 
 call plug#end()
 
@@ -52,9 +51,15 @@ let g:move_key_modifier = 'C'
 " NERDTree
 let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeShowHidden=1                        " Show hidden files by default
-let NERDTreeWinPos="right"                      " Right position
+let NERDTreeWinPos='right'                      " Right position
 
-map <C-t> :NERDTreeToggle<CR>                   " Use F6 key to toggle NerdTree
+map <C-t> :NERDTreeToggle<CR>                   " Use `t` key to toggle NerdTree
+map <C-f> :NERDTreeFind<CR>                     " Use `f` key to find file in NerdTree
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_complete_in_comments = 1
 
 """ Standard configuration
 
@@ -96,11 +101,11 @@ set binary
 set noeol
 
 " Centralize backups, swap files and undo history.
-set backupdir=~/.nvim/backups
-set directory=~/.nvim/swaps
+set backupdir=~/.config/nvim/backups
+set directory=~/.config/nvim/swaps
 
 if exists("&undodir")
-  set undodir=~/.nvim/undo
+  set undodir=~/.config/nvim/undo
 endif
 
 " Don't create backups when editing files in certain directories.

@@ -1,3 +1,4 @@
 .nvim/swaps
 .nvim/bundle
 .nvim/.netrwhist
+.nvim/init.vim
