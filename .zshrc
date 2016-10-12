@@ -51,19 +51,21 @@ ZSH_THEME="nicoulaj"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(brew colored-man gitfast osx wd)
 
-# Load oh-my-zsh settings
-source $ZSH/oh-my-zsh.sh
-source $HOME/.nvim/bundle/gruvbox/gruvbox_256palette_osx.sh
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 export MANPATH="/usr/local/man:$MANPATH"
+export XDG_CONFIG_HOME="$HOME/.config"
 export NVM_DIR="$HOME/.nvm"
 
 export EDITOR='nvim'
 
 # Hide brew icon after install script
 export HOMEBREW_NO_EMOJI=1
+
+# Load oh-my-zsh settings
+source $ZSH/oh-my-zsh.sh
+source $XDG_CONFIG_HOME/nvim/bundle/gruvbox/gruvbox_256palette_osx.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

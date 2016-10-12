@@ -9,18 +9,20 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'rking/ag.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 
 Plug 'matze/vim-move'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'godlygeek/tabular'
+Plug 'szw/vim-smartclose'
+Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'sheerun/vim-polyglot'
-Plug 'scrooloose/syntastic'
+Plug 'heavenshell/vim-jsdoc'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --omnisharp-completer' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 
@@ -34,16 +36,11 @@ let g:gruvbox_guisp_fallback = 'fg'
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
 
 " vim-gitgutter
 let g:gitgutter_realtime = 1
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
-
-" ctrlp.vim
-let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
 
 " vim-move
 let g:move_key_modifier = 'C'
@@ -53,13 +50,29 @@ let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeShowHidden=1                        " Show hidden files by default
 let NERDTreeWinPos='right'                      " Right position
 
-map <C-t> :NERDTreeToggle<CR>                   " Use `t` key to toggle NerdTree
-map <C-f> :NERDTreeFind<CR>                     " Use `f` key to find file in NerdTree
+map <silent> <C-t> :NERDTreeToggle<CR>          " Use `Ctrl + t` key to toggle NerdTree
+map <silent> <C-f> :NERDTreeFind<CR>            " Use `Ctrl + f` key to find file in NerdTree
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_complete_in_comments = 1
+
+" vim-jsdoc
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_additional_descriptions = 1
+let g:jsdoc_param_description_separator = ' - '
+
+nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+
+" tagbar
+nmap <silent> <F8> :TagbarToggle<CR>
+
+" vim-ctrlspace
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
 
 """ Standard configuration
 
@@ -186,6 +199,9 @@ set scrolloff=5
 " Enable spell checking.
 set spell
 
+" Don't unload the buffer when it's closed
+set hidden
+
 " Strip trailing whitespace (,ss).
 function! StripWhitespace()
   let save_cursor = getpos(".")
@@ -194,10 +210,11 @@ function! StripWhitespace()
   call setpos('.', save_cursor)
   call setreg('/', old_query)
 endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
+
+noremap <silent> <leader>ss :call StripWhitespace()<CR>
 
 " Clear last search highlight by pressing ⏎ key.
-nnoremap <CR> :noh<CR><CR>
+nnoremap <silent> <CR> :noh<CR><CR>
 
 " Automatic commands.
 if has("autocmd")
@@ -210,15 +227,18 @@ if has("autocmd")
   " Treat .md files as Markdown.
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
+  " Treat .tag files as Riot modules
+  autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
+
   " Close NERDTree automatically if it's the last window
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 
 " Use spaces instead of tab.
 set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 " Use the custom theme.
 set background=dark
