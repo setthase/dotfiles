@@ -23,7 +23,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --omnisharp-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 
 call plug#end()
