@@ -82,6 +82,9 @@ set nocompatible
 " Use UTF-8 without BOM.
 set encoding=utf-8 nobomb
 
+" Make sure to use English language interface
+language en_US
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`).
 set clipboard=unnamed
 
@@ -99,6 +102,9 @@ set ttimeoutlen=50
 
 " Optimize for fast terminal connections.
 set ttyfast
+
+" Use truecolor terminal
+set termguicolors
 
 " Do not redraw while running macros (much faster).
 set lazyredraw
