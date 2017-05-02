@@ -50,8 +50,8 @@ let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeShowHidden=1                        " Show hidden files by default
 let NERDTreeWinPos='right'                      " Right position
 
-map <silent> <C-t> :NERDTreeToggle<CR>          " Use `Ctrl + t` key to toggle NerdTree
-map <silent> <C-f> :NERDTreeFind<CR>            " Use `Ctrl + f` key to find file in NerdTree
+nmap <silent> <C-t> :NERDTreeToggle<CR>         " Use `Ctrl + t` key to toggle NerdTree
+nmap <silent> <C-f> :NERDTreeFind<CR>           " Use `Ctrl + f` key to find file in NerdTree
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -74,6 +74,9 @@ if executable("ag")
     let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif
 
+let g:CtrlSpaceSetDefaultMapping = 0
+nmap <silent> <C-Space> :CtrlSpace<CR>
+
 """ Standard configuration
 
 " Make Vim more useful.
@@ -91,9 +94,6 @@ set clipboard=unnamed
 " Enhance command-line completion.
 set wildmode=full
 set wildmenu
-
-" Allow cursor keys in insert mode.
-set esckeys
 
 " Allow backspace in insert mode.
 set backspace=indent,eol,start
@@ -242,9 +242,9 @@ endif
 
 " Use spaces instead of tab.
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " Use the custom theme.
 set background=dark
