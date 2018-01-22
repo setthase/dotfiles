@@ -1,11 +1,12 @@
-# Include Antigen
-source $HOME/.dotfiles/antigen/antigen.zsh
+# Include Antigen (install with brew first)
+source /usr/local/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 # Bundles from the oh-my-zsh.
 antigen bundle colored-man
+antigen bundle docker
 antigen bundle gitfast
 antigen bundle osx
 antigen bundle wd
@@ -25,7 +26,7 @@ antigen theme nicoulaj
 antigen apply
 
 # Export paths.
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.dotfiles/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -37,6 +38,9 @@ export HOMEBREW_NO_EMOJI=1
 
 # Fix Gruvbox palette.
 source $XDG_CONFIG_HOME/nvim/bundle/gruvbox/gruvbox_256palette_osx.sh
+
+# Use chruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
 
 # Set language environment.
 export LANG=en_US.UTF-8

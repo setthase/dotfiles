@@ -21,7 +21,9 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
 
+Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
+Plug 'jparise/vim-graphql'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
@@ -39,7 +41,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 " vim-gitgutter
 let g:gitgutter_realtime = 1
-let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
 
 " vim-move
@@ -65,6 +66,18 @@ let g:jsdoc_additional_descriptions = 1
 let g:jsdoc_param_description_separator = ' - '
 
 nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+
+" ale
+let g:ale_fixers = {}
+let g:ale_fixers['graphql'] = ['prettier']
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['json'] = ['prettier']
+let g:ale_fixers['typescript'] = ['prettier']
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+
+nmap <silent> <F12> :ALEGoToDefinition<CR>
+nmap <silent> <F1>  :ALEDetail<CR>
 
 " tagbar
 nmap <silent> <F8> :TagbarToggle<CR>
@@ -143,6 +156,7 @@ set secure
 
 " Enable line numbers.
 set number
+set signcolumn=yes
 
 " Use relative line numbers.
 if exists("&relativenumber")
@@ -233,8 +247,11 @@ if has("autocmd")
   " Treat .md files as Markdown.
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
-  " Treat .tag files as Riot modules
-  autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
+  " Treat .dockerfile files as Dockerfile type.
+  autocmd BufNewFile,BufRead *.dockerfile setlocal filetype=Dockerfile
+
+  " Treat
+  autocmd BufNewFile,BufRead *.dockerfile setlocal filetype=Dockerfile
 
   " Close NERDTree automatically if it's the last window
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -242,9 +259,9 @@ endif
 
 " Use spaces instead of tab.
 set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 " Use the custom theme.
 set background=dark
